@@ -11,6 +11,7 @@ CLASS_NAMES = ['Potato___Early_blight', 'Potato___Late_blight', 'Potato___health
 
 #Instantiating Class 
 app = FastAPI()
+endpoint = "http://localhost:8501/v1/models/potato_models/"
 
 @app.get("/ping")
 async def ping():
@@ -33,7 +34,7 @@ async def predict(file: UploadFile = File(...)):
 
     return {
         "predicted_class": predicted_class,
-        "confidence": float(confidence)
+        # "confidence": float(confidence)
     }
   
 
